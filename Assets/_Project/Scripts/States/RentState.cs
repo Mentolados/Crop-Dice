@@ -9,7 +9,8 @@ public class RentState : BaseState
     public override void InitializeState(GameManager gm)
     {
         base.InitializeState(gm);
-        Debug.LogFormat("Initialize state {0}", state);
+
+        gm.ShowEventRent();
     }
 
     public override void Update(GameManager gm)

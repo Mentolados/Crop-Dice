@@ -9,7 +9,13 @@ public class RollState : BaseState
     public override void InitializeState(GameManager gm)
     {
         base.InitializeState(gm);
-        Debug.LogFormat("Initialize state {0}", state);
+
+        gm.buttonRoll.interactable = true;
+        gm.buttonDone.interactable = true;
+
+        gm.ChangeTextTable("ROLL PHASE: Roll until you're happy then click done!\r\nClick dices that you want to keep for next rerolls!");
+
+        gm.RollDices();
     }
 
     public override void Update(GameManager gm)

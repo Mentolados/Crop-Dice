@@ -6,10 +6,9 @@ using UnityEngine;
 [Serializable, CreateAssetMenu(fileName = "Seed", menuName = "ScriptableObjects/Item/Seed", order = 1)]
 public class SeedBase : ScriptableObject
 {
-    public int id, idName, idDescription;
-    public List<Sprite> listSprites = new List<Sprite>();
+    public string idName, idDescription;
 
     public SeedType seedType;
 
-    public int waterCountToComplete;
+    public int waterCountToComplete, value;
 }

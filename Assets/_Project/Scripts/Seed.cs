@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SeedType { None, Carrot }
-public enum SeedState { None, Germination, Growth, Flowering }
+public enum SeedType { None, Edamame, Daikon, BokChoy }
+public enum SeedState { None, Germination, Flowering }
 
 [System.Serializable]
 public class Seed
@@ -12,8 +12,6 @@ public class Seed
 
     public SeedType seedType;
     public SeedState seedState;
-
-    public Sprite actualSprite;
 
     public int waterCountToComplete;
     public int waterActualCount;

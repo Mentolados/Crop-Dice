@@ -9,7 +9,9 @@ public class TutorialState : BaseState
     public override void InitializeState(GameManager gm)
     {
         base.InitializeState(gm);
-        Debug.LogFormat("Initialize state {0}", state);
+
+        gm.ChangeTextTable("PREPARING ALL!");
+
     }
 
     public override void Update(GameManager gm)
