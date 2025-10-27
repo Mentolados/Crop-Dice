@@ -10,6 +10,7 @@ public class RentState : BaseState
     {
         base.InitializeState(gm);
 
+        gm.textPayRent.text = gm.gameStats.pricesNextRent[gm.gameStats.nextPayRent].ToString() + "$";
         gm.ShowEventRent();
     }
 

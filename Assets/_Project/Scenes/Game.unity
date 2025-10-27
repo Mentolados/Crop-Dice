@@ -25645,7 +25645,7 @@ MonoBehaviour:
     day: -1
     week: 8
     gold: 0
-    nextPayRent: 2
+    nextPayRent: 0
     plotCount: 0
     reRollMax: 0
     reRollsCount: 0

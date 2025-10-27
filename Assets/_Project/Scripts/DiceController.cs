@@ -234,7 +234,7 @@ public class DiceController : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     {
         if (dice.diceState == DiceState.None || dice.diceState == DiceState.Discard) { return; }
 
-        dice.diceTopface = null;
+        //dice.diceTopface = null;
         dice.diceState = DiceState.Discard;
 
         List<Vector3> positions = new List<Vector3>();

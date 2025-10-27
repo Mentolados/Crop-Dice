@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
 
     public void DOPayRent()
     {
-        if(gameStats.nextPayRent > gameStats.gold)
+        if(gameStats.pricesNextRent[gameStats.nextPayRent] > gameStats.gold)
         {
             for(int i = 0; i < listEvents[0].transform.childCount; i++)
             {
@@ -123,7 +123,10 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        gameStats.gold -= gameStats.nextPayRent;
+        gameStats.gold -= gameStats.pricesNextRent[gameStats.nextPayRent];
+        gameStats.nextPayRent++;
+
+        UpdateTextDaysRemains();
         UpdateTextGold();
 
         PlaySFX(2);
@@ -322,7 +325,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateTextDaysRemains()
     {
-        textRent.text = gameStats.nextPayRent.ToString() + "$ due in " + gameStats.week.ToString() + " days";
+        textRent.text = gameStats.pricesNextRent[gameStats.nextPayRent].ToString() + "$ due in " + gameStats.week.ToString() + " days";
         //textRent.GetComponent<TextEffect>().Refresh();
     }
 
