@@ -180,6 +180,8 @@ public class DiceController : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        Debug.Log("POINTER ENTER DICE");
+
         if (GameManager.instance.currentState == GameManager.instance.statePlaying) { return; }
 
         if (dice.diceState == DiceState.None || dice.diceState == DiceState.Discard || dice.diceState == DiceState.Selected) { return; }
@@ -270,6 +272,7 @@ public class DiceController : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                 crop.seedPlanted.waterActualCount ++;
                 crop.animWatering.endPoint = icon.transform;
                 crop.animWatering.gameObject.SetActive(true);
+                StartCoroutine(crop.animWatering.AnimationWatering());
 
                 crop.TextWater();
 

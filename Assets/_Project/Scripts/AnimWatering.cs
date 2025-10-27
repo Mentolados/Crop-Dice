@@ -12,7 +12,7 @@ public class AnimWatering : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(AnimationWatering());
+        //StartCoroutine(AnimationWatering());
     }
 
     public IEnumerator AnimationWatering()

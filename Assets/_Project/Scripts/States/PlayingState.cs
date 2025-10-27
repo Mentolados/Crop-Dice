@@ -14,6 +14,7 @@ public class PlayingState : BaseState
         gm.buttonDone.interactable = false;
         gm.buttonRoll.interactable = false;
         gm.buttonEnd.gameObject.SetActive(true);
+        gm.buttonEnd.interactable = true;
 
         gm.ChangeTextTable("DRAG PHASE: Drag and drop your dices to \r\napply effects on your crops!");
 

@@ -124,6 +124,7 @@ public class GameManager : MonoBehaviour
         }
 
         gameStats.gold -= gameStats.nextPayRent;
+        UpdateTextGold();
 
         PlaySFX(2);
         PlaySFX(0);
@@ -224,6 +225,7 @@ public class GameManager : MonoBehaviour
 
         button.onClick.SetPersistentListenerState(0, UnityEventCallState.Off);
         listDices[index - 1].dice.diceState = DiceState.Unselected;
+        listDices[index - 1].dice.diceTopface = listDices[index - 1].dice.listFaces[0];
 
         PlaySFX(14);
     }
@@ -275,6 +277,8 @@ public class GameManager : MonoBehaviour
         {
             dice.Discard();
         }
+
+        buttonEnd.interactable = false;
 
         yield return new WaitForSeconds(3f);
 

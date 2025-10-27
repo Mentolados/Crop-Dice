@@ -6,7 +6,7 @@ public class AnimParticles : MonoBehaviour
 {
     void Start()
     {
-        StartCoroutine(AnimationShine());
+        //StartCoroutine(AnimationShine());
     }
 
     public IEnumerator AnimationShine()

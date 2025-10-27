@@ -98,6 +98,15 @@ public class CropController : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         seedPlanted.waterCountToComplete = 0;
         seedPlanted.seedBaseSO = null;
 
+        GameManager.instance.PlaySFX(3);
+
+        int index = (transform.childCount - 2);
+
+        particleShine.SetActive(false);
+
+        transform.GetChild(index).gameObject.SetActive(false);
+        transform.GetChild(index + 1).gameObject.SetActive(false);
+
         wormCount = 0;
     }
 
@@ -130,6 +139,7 @@ public class CropController : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
         seedActiveState[(int)seedPlanted.seedType].SetActive(true);
         particleShine.gameObject.SetActive(true);
+        StartCoroutine(particleShine.GetComponent<AnimParticles>().AnimationShine());
 
         TextWater();
     }
@@ -152,6 +162,12 @@ public class CropController : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     public void OnDrop(PointerEventData eventData)
     {
         if(!isCropActive) { return; }
+
+        if (GameManager.instance.currentState != GameManager.instance.statePlaying) { return; }
+
+        if (eventData.pointerDrag.GetComponent<DiceController>().dice.diceState == DiceState.None || eventData.pointerDrag.GetComponent<DiceController>().dice.diceState == DiceState.Discard) { return; }
+
+        if (eventData.pointerDrag.GetComponent<DiceController>().dice.diceTopface.type == DiceFaceType.Blank ||     eventData.pointerDrag.GetComponent<DiceController>().dice.diceTopface.type == DiceFaceType.Bug) { return; }
 
         eventData.pointerDrag.GetComponent<DiceController>().OnItemEffect(this);
         //eventData.pointerDrag.GetComponent<DiceController>().Discard();
